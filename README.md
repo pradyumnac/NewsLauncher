@@ -1,9 +1,9 @@
-"Web Browser Homepage" is a custom homepage / new tab page built for web browsers.
+"NewsLauncher" is a custom homepage / new tab page built for web browsers.
 <br><br>
 <img src="img/preview.png"></img>
 
 Paste the following URL in your browser settings for your homepage:<br/>
-`https://raw.githack.com/k-capehart/Web-Browser-Homepage/master/index.html`
+`https://raw.githack.com/pradyumnac/NewsLauncher/master/index.html`
 
 Alternatively, pull down the repository and set your homepage URL to the local file path, i.e.<br/>
 `/Users/kcapehart/Documents/Web-Browser-Homepage/index.html`
