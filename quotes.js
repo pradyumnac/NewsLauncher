@@ -1,5 +1,5 @@
-const DOMAIN = "https://pradyumnac.github.io/newslauncher";
-const QUOTES_JSON_URL = DOMAIN + "/data/quotes.db.ascii.json";
+const DOMAIN = "https://pradyumnac.github.io/newslauncher/";
+const QUOTES_JSON_URL = DOMAIN + "data/quotes.db.ascii.json";
 const VERSION_URL = DOMAIN + "data/quotes-version.json";
 const DB_NAME = "QuotesDB";
 const STORE_NAME = "quotes";
@@ -138,6 +138,7 @@ async function searchQuotes(term) {
     getReq.onerror = () => reject(getReq.error);
   });
 }
+
 (async function () {
   console.log("📚 Initializing quote system...");
 
