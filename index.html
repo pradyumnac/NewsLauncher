@@ -334,7 +334,7 @@
           throw new Error("Network response was not ok.");
         })
         .then((data) => {
-          const quote = data[0];
+          const quote = data.contents[0];
           document.getElementById("quote").textContent =
             `"${quote.q}" — ${quote.a}`;
         })
