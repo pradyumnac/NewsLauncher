@@ -169,7 +169,7 @@
         font-size: 2.5rem;
         letter-spacing: 0.1em;
         background-color: var(--bg2);
-        color: var(--card);
+        color: var(--color);
         padding: 10px 20px;
         border-radius: 8px;
         text-align: center;
@@ -527,7 +527,15 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         const savedTheme = localStorage.getItem("preferredTheme") || "sepia";
-        document.getElementById("themeSelector").value = savedTheme;
+        var themeSelect = document.getElementById("themeSelector");
+        // select dropdown visually as well as by value
+        for (var i, j = 0; (i = themeSelect.options[j]); j++) {
+          if (i.value == savedTheme) {
+            themeSelect.selectedIndex = j;
+            break;
+          }
+        }
+
         changeTheme(savedTheme);
         loadBookmarks();
       });
