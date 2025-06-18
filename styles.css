@@ -60,12 +60,6 @@ body {
     font-size: 1.4rem;
 }
 
-/* PROMPT ON GLASS OVERLAY */
-
-#question {
-    font-size: 1.5rem;
-}
-
 /* ICONS ON GLASS OVERLAY */
 
 .icons {
@@ -82,20 +76,17 @@ body {
     list-style-type: none;
 }
 .icons li {
-	border-radius: 0.2rem;
+	padding: 0.1rem;
 	background: #000000;
-	/* background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(79, 89, 79, 1) 65%, rgba(87, 102, 91, 1) 100%);
-*/
-	}
+	background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(79, 89, 79, 1) 65%, rgba(87, 102, 91, 1) 100%);
+}
+
 i {
     transition: transform 0.3s;
 }
-i::after {      /* this removes unneccesary icon leftovers that may come from the FontAwesome CDN */ 
+i::after {
     display: none;
 }
-
-/* HOVER STATES */
-
 i:hover {
     transform: scale(1.2);
 }
