@@ -138,7 +138,3 @@ async function searchQuotes(term) {
     getReq.onerror = () => reject(getReq.error);
   });
 }
-
-// On DOMContentLoaded or manually trigger
-await initQuotesStorage(quotesData);
-getRandomQuote().then(console.log);
