@@ -138,3 +138,12 @@ async function searchQuotes(term) {
     getReq.onerror = () => reject(getReq.error);
   });
 }
+(async function () {
+  console.log("📚 Initializing quote system...");
+
+  await initQuotesStorage();
+
+  const quote = await getRandomQuote();
+  const display = document.getElementById("quote-display");
+  display.textContent = `${quote.quote} — ${quote.author}`;
+})();

@@ -618,18 +618,5 @@
     </script>
 
     <script src="quotes.js" defer></script>
-    <script src="quotes-worker.js" defer></script>
-    <script>
-      (async function () {
-        console.log("📚 Initializing quote system...");
-
-        // Assume you have a function like this
-        await initQuotesStorage();
-
-        // Optional: get a random quote and display
-        const quote = await getRandomQuote();
-        console.log(quote.quote + " ~ " + quote.author);
-      })();
-    </script>
   </body>
 </html>
