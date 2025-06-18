@@ -1,11 +1,11 @@
 {
   "name": "NewsLauncher",
   "short_name": "NewsLauncher",
-  "start_url": "main.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f",
-  "orientation": "portrait",
+  "orientation": "landscape",
   "icons": [
     {
       "src": "images/favicon.ico",

@@ -2,7 +2,7 @@ self.addEventListener("install", (e) => {
   e.waitUntil(
     caches.open("launcher-cache").then((cache) => {
       return cache.addAll([
-        "/main.html",
+        "/index.html",
         "/manifest.json",
         "./img/favicon.png",
       ]);

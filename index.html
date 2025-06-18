@@ -1,42 +1,398 @@
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsLauncher</title>
-    <link href="styles.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-</head>
-<body>
-    <div class="glass">
-        <!-- "Good Day" set as greeting in case JavaScript does not load -->
-        <div id="greeting">Web Launcher</div>
-        <div id="sub-greeting">conserve attention like a champ!</div>
-        <div id="clock">
-            <div id="hour"></div>
-            <div id="minute"></div>
-            <div id="timeSuffix"></div>
-            
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f0f0f" />
+    <meta
+      name="description"
+      content="Minimal homepage launcher with bookmarks, Google search, quote of the day, and PWA support."
+    />
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Launcher</title>
+    <style>
+      :root {
+        --bg1: #1a1a1a;
+        --bg2: #101010;
+        --color: #ffffff;
+        --card: #000000;
+      }
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif;
+        background-color: var(--bg1);
+        color: var(--color);
+        text-align: center;
+        overflow-x: hidden;
+      }
+
+      body.theme-day {
+        --bg1: #ffffff;
+        --bg2: #f0f0f0;
+        --color: #111;
+        --card: #f9f9f9;
+      }
+      body.theme-night {
+        --bg1: #111;
+        --bg2: #000;
+        --color: #eee;
+        --card: #1a1a1a;
+      }
+      body.theme-sepia {
+        --bg1: #f4ecd8;
+        --bg2: #eaddc3;
+        --color: #5b4636;
+        --card: #f5e7c4;
+      }
+      body.theme-gruvbox {
+        --bg1: #282828;
+        --bg2: #1d2021;
+        --color: #ebdbb2;
+        --card: #3c3836;
+      }
+      body.theme-tokyo {
+        --bg1: #1a1b26;
+        --bg2: #16161e;
+        --color: #a9b1d6;
+        --card: #2a2b3c;
+      }
+      body.theme-catpuccin {
+        --bg1: #1e1e2e;
+        --bg2: #181825;
+        --color: #f5e0dc;
+        --card: #2c2c3a;
+      }
+
+      header {
+        padding: 40px 16px 16px;
+      }
+
+      .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .header-bar h1 {
+        font-size: 1.8rem;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .theme-switcher select {
+        background-color: inherit;
+        color: inherit;
+        border: 1px solid #888;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 1rem;
+        appearance: none;
+      }
+
+      #clock {
+        font-family: "Orbitron", monospace;
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--card);
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-align: center;
+        width: fit-content;
+        box-shadow: 0 0 10px var(--bg2);
+        margin: 10px auto;
+      }
+
+      form {
+        margin: 30px auto;
+        max-width: 600px;
+      }
+
+      input[type="text"] {
+        padding: 12px;
+        width: 80%;
+        max-width: 500px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        background: inherit;
+        color: inherit;
+      }
+
+      .bookmark-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding: 40px 20px;
+      }
+
+      .bookmark-group {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        background: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+        min-width: 180px;
+        max-width: 260px;
+      }
+
+      .icon-link a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+      }
+
+      .icon-link a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .add-bookmark {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      footer {
+        font-size: 0.8em;
+        padding: 30px 10px 20px;
+        color: inherit;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      @media (max-width: 768px) {
+        .bookmark-section {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .bookmark-group {
+          width: 90%;
+          margin: auto;
+        }
+
+        h1 {
+          font-size: 1.8em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-bar">
+        <h1><i class="fa-solid fa-rocket"></i> Web Launcher</h1>
+        <div class="theme-switcher">
+          <select id="themeSelector" onchange="changeTheme(this.value)">
+            <option value="day">Day</option>
+            <option value="night">Night</option>
+            <option value="sepia">Sepia</option>
+            <option value="gruvbox">Gruvbox</option>
+            <option value="tokyo">Tokyo</option>
+            <option value="catpuccin">Catpuccin</option>
+          </select>
         </div>
-        <div id="date"></div>
-        <div class="icons">
-            <ul>
-                <li class="icon-link"><a href="https://www.business-standard.com/">Bs</a></li>
-                <li class="icon-link"><a href="https://www.livemint.com/news">Lm</a></li>
-                <li class="icon-link"><a href="https://economictimes.indiatimes.com/">Et</i></a></li>
-            </ul>
-            <ul>
-                <li class="icon-link"><a href="https://www.ft.com/">Ft</a></li>
-                <li class="icon-link"><a href="https://www.nytimes.com/international/">Nyt</i></a></li>
-                <li class="icon-link"><a href="https://www.wsj.com/">Wsj</a></li>
-                <li class="icon-link"><a href="https://www.economist.com/">Econ</a></li>
-            </ul>
+      </div>
+      <div id="clock"></div>
+      <form action="https://www.google.com/search" method="GET" target="_blank">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search Google..."
+          aria-label="Google search input"
+        />
+      </form>
+    </header>
+
+    <main class="bookmark-section">
+      <section class="bookmark-group" aria-label="Indian News Sites">
+        <div class="icon-link">
+          <a href="https://www.business-standard.com/"
+            ><i class="fa-solid fa-briefcase"></i> Business Standard</a
+          >
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <div class="icon-link">
+          <a href="https://www.livemint.com/news"
+            ><i class="fa-solid fa-newspaper"></i> Livemint</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://economictimes.indiatimes.com/"
+            ><i class="fa-solid fa-chart-line"></i> Economic Times</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.moneycontrol.com/"
+            ><i class="fa-solid fa-indian-rupee-sign"></i> Moneycontrol</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.cnbctv18.com/"
+            ><i class="fa-solid fa-tv"></i> CNBC TV18</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.hindustantimes.com/business"
+            ><i class="fa-solid fa-landmark"></i> HT Business</a
+          >
+        </div>
+      </section>
+
+      <section class="bookmark-group" aria-label="International News Sites">
+        <div class="icon-link">
+          <a href="https://www.ft.com/"
+            ><i class="fa-solid fa-globe"></i> Financial Times</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.nytimes.com/international/"
+            ><i class="fa-solid fa-book-open"></i> NY Times</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.wsj.com/"
+            ><i class="fa-solid fa-pen-nib"></i> WSJ</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.economist.com/"
+            ><i class="fa-solid fa-landmark-dome"></i> Economist</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.bloomberg.com/"
+            ><i class="fa-solid fa-building-columns"></i> Bloomberg</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.reuters.com/"
+            ><i class="fa-solid fa-signal"></i> Reuters</a
+          >
+        </div>
+      </section>
+
+      <section class="bookmark-group" aria-label="Your Bookmarks">
+        <div id="user-links"></div>
+        <div class="add-bookmark">
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="Label (e.g., Reddit)"
+          />
+          <input
+            id="urlInput"
+            type="url"
+            placeholder="URL (e.g., https://www.reddit.com)"
+          />
+          <button type="button" onclick="addBookmark()">Add</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div id="quote">Fetching quote of the day...</div>
+    </footer>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        document.getElementById("clock").textContent = now.toLocaleString();
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      fetch(
+        "https://api.allorigins.win/get?url=https://zenquotes.io/api/quotes",
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const quote = JSON.parse(data.contents)[0];
+          document.getElementById("quote").textContent =
+            `"${quote.q}" — ${quote.a}`;
+        })
+        .catch(() => {
+          document.getElementById("quote").textContent =
+            "Could not load quote. Try again later.";
+        });
+
+      function escapeHtml(unsafe) {
+        return unsafe.replace(/[&<"']/g, function (m) {
+          return {
+            "&": "&amp;",
+            "<": "&lt;",
+            '"': "&quot;",
+            "'": "&#039;",
+          }[m];
+        });
+      }
+
+      function loadBookmarks() {
+        const container = document.getElementById("user-links");
+        const bookmarks = JSON.parse(
+          localStorage.getItem("customBookmarks") || "[]",
+        );
+        container.innerHTML = "";
+        bookmarks.forEach(({ name, url }) => {
+          const link = document.createElement("div");
+          link.className = "icon-link";
+          link.innerHTML = `<a href="${url}" target="_blank"><i class="fa-solid fa-link"></i> ${name}</a>`;
+          container.appendChild(link);
+        });
+      }
+
+      function addBookmark() {
+        const rawName = document.getElementById("nameInput").value.trim();
+        const rawUrl = document.getElementById("urlInput").value.trim();
+        if (!rawName || !rawUrl) return;
+        const name = escapeHtml(rawName);
+        const url = escapeHtml(rawUrl);
+        const bookmarks = JSON.parse(
+          localStorage.getItem("customBookmarks") || "[]",
+        );
+        bookmarks.push({ name, url });
+        localStorage.setItem("customBookmarks", JSON.stringify(bookmarks));
+        loadBookmarks();
+      }
+
+      function changeTheme(theme) {
+        document.body.className = `theme-${theme}`;
+        localStorage.setItem("preferredTheme", theme);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("preferredTheme") || "sepia";
+        document.getElementById("themeSelector").value = savedTheme;
+        changeTheme(savedTheme);
+        loadBookmarks();
+      });
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </body>
 </html>
