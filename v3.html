@@ -23,7 +23,7 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
       rel="stylesheet"
     />
-    <title>Launcher</title>
+    <title>NewsLauncher</title>
     <style>
       :root {
         --bg1: #1a1a1a;
@@ -75,6 +75,10 @@
         --bg2: #181825;
         --color: #f5e0dc;
         --card: #2c2c3a;
+      }
+
+      #title {
+        margin-left: 2rem;
       }
 
       header {
@@ -232,7 +236,7 @@
   <body>
     <header>
       <div class="header-bar">
-        <h1><i class="fa-solid fa-rocket"></i> Web Launcher</h1>
+        <h1><i id="title" class="fa-solid fa-rocket"></i> Web Launcher</h1>
         <div class="theme-switcher">
           <select id="themeSelector" onchange="changeTheme(this.value)">
             <option value="day">Day</option>
