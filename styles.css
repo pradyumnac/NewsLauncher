@@ -39,10 +39,6 @@ body {
     font-size: 2rem;
 }
 
-#sub-greeting {
-	font-size: 0.8rem;
-}
-
 /* CLOCK ON GLASS OVERLAY */
 
 #clock {
@@ -60,21 +56,6 @@ body {
     font-size: 1.4rem;
 }
 
-/* ICONS ON GLASS OVERLAY */
-
-.icons {
-    font-size: 3rem;
-    cursor: pointer;
-}
-.icons ul {
-    padding: 0;
-    margin: 1.2rem;
-    width: 25rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    list-style-type: none;
-}
 /*
 .icons li {
 	padding: 0.1rem;
@@ -82,19 +63,25 @@ body {
 	background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(79, 89, 79, 1) 65%, rgba(87, 102, 91, 1) 100%);
 }
 */
-i {
-    transition: transform 0.3s;
+
+.icon-link {
+  display: inline-flex; /* Use flexbox for better alignment */
+  align-items: center;  /* Vertically center the icon and text */
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Inherit color from parent */
+  /* Add some spacing */
+  gap: 0.5em;
 }
-i::after {
-    display: none;
+
+.icon-link i {
+  font-size: 1em; /* Match the font size of the text */
 }
-i:hover {
-    transform: scale(1.2);
+
+.icon-link span {
+  font-size: 0.9em; /* Slightly smaller label */
 }
-i:not(:hover) {     /* this ensures smooth transform animation when mouse pointer leaves the hover state */
-    transform: scale(1);
-    transition-duration: 0.40s;
-}
+
+
 
 /* BACKGROUND ANIMATION */
 
