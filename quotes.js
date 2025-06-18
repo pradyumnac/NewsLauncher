@@ -44,9 +44,9 @@ async function clearQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
   }
 }
 
-async function updateQuote() {
+async function updateQuoteToView() {
   const quote = getRandomQuote();
-  const display = document.getElementById("quote-display");
+  const display = document.getElementById("quote");
   display.textContent = `${quote.quote} — ${quote.author}`;
 }
 
@@ -59,6 +59,7 @@ async function initQuotesStorage() {
 
   if (storedVersion === latestVersion) {
     console.log("✅ Up-to-date: Quotes version matches.");
+    await updateQuoteToView();
     return;
   }
 
@@ -78,6 +79,8 @@ async function initQuotesStorage() {
     if (status === "success") {
       localStorage.setItem("quotes_version", latestVersion);
       console.log(`✅ ${count} quotes saved.`);
+      updateQuoteToView();
+      console.log(`✅ Quote updated.`);
     } else {
       console.error("❌ Worker error:", error);
     }
