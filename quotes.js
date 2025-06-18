@@ -27,25 +27,21 @@ async function fetchQuotesData() {
     return [];
   }
 }
-
-// --- Clear IndexedDB if needed ---
-function clearQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open(dbName, 1);
-    req.onerror = () => reject(req.error);
-    req.onsuccess = () => {
-      try {
-        const tx = req.result.transaction(storeName, "readwrite");
-        const store = tx.objectStore(storeName);
-        const clearReq = store.clear();
-        clearReq.onsuccess = () => resolve(true);
-        clearReq.onerror = () => reject(clearReq.error);
-      } catch (err) {
-        console.warn("No store found! first time?");
-        resolve(true);
-      }
-    };
-  });
+async function clearQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
+  try {
+    const { db, store } = await openQuotesDB(dbName, storeName);
+    const tx = db.transaction(storeName, "readwrite");
+    const storeWrite = tx.objectStore(storeName);
+    await new Promise((res, rej) => {
+      const req = storeWrite.clear();
+      req.onsuccess = () => res(true);
+      req.onerror = () => rej(req.error);
+    });
+    return true;
+  } catch (e) {
+    console.warn("No store to clear or DB issue", e);
+    return false;
+  }
 }
 
 // --- Initialize Storage ---
