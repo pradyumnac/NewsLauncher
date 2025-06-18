@@ -50,7 +50,7 @@ async function updateQuoteToView() {
       if (quote) {
         console.log(`${quote.quote} — ${quote.author}`);
         const display = document.getElementById("quote");
-        display.textContent = `${quote.quote} — ${quote.author}`;
+        display.textContent = `${quote.q} — ${quote.a}`;
       } else {
         console.warn("⚠️ No quote found.");
       }
