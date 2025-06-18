@@ -344,6 +344,52 @@
       <div id="quote">Fetching quote of the day...</div>
     </footer>
 
+    <!-- Hotkey Modal -->
+    <div
+      id="hotkeyModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000000cc;
+        color: white;
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          background: #222;
+          padding: 20px;
+          border-radius: 8px;
+          max-width: 600px;
+          width: 90%;
+          max-height: 80vh;
+          overflow: auto;
+        "
+      >
+        <h2 style="margin-top: 0">Keyboard Shortcuts</h2>
+        <ul id="hotkeyList" style="text-align: left; font-size: 1em"></ul>
+        <button
+          onclick="hideHotkeyModal()"
+          style="
+            margin-top: 15px;
+            padding: 8px 12px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+          "
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
     <script>
       function updateClock() {
         const now = new Date();
