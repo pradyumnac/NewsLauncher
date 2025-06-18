@@ -588,7 +588,9 @@
         document.getElementById("hotkeyModal").style.display = "none";
       }
 
-      document.addEventListener("DOMContentLoaded", assignHotkeys);
+      document.addEventListener("DOMContentLoaded", (e) => {
+        assignHotkeys();
+      });
 
       document.addEventListener("keydown", (e) => {
         const activeTag = document.activeElement.tagName.toLowerCase();
@@ -614,5 +616,8 @@
         }
       });
     </script>
+
+    <script src="quotes.js" defer></script>
+    <script src="quotes-worker.js" defer></script>
   </body>
 </html>

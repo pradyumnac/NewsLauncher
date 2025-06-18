@@ -5,6 +5,10 @@ self.addEventListener("install", (e) => {
         "/newslauncher",
         "/newslauncher/manifest.json",
         "/newslauncher/img/favicon.png",
+        "/newslauncher/quotes.js",
+        "/newslauncher/quotes-worker.js",
+        "/newslauncher/data/quotes.db.ascii.json",
+        "/newslauncher/data/quotes-version.json",
       ]);
     }),
   );
