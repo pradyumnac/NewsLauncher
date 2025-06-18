@@ -8,16 +8,21 @@
       name="description"
       content="Minimal homepage launcher with bookmarks, Google search, quote of the day, and PWA support."
     />
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png" />
     <link rel="manifest" href="manifest.json" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet"
+    />
     <title>Launcher</title>
     <style>
       body {
         margin: 0;
-        font-family: "Segoe UI", sans-serif;
+        font-family: "quicksand", sans-serif;
         background-color: var(--bg1);
         color: --var(color);
         text-align: center;
@@ -318,7 +323,10 @@
       setInterval(updateClock, 1000);
 
       // Quote of the Day (using ZenQuotes)
-      fetch("https://zenquotes.io/api/quotes")
+      // using public cors proxy
+      fetch(
+        "https://api.allorigins.win/get?url=https://zenquotes.io/api/quotes",
+      )
         .then((res) => res.json())
         .then((data) => {
           const quote = data[0];

@@ -1,19 +1,19 @@
-self.addEventListener("install", e => {
+self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open("launcher-cache").then(cache => {
+    caches.open("launcher-cache").then((cache) => {
       return cache.addAll([
-        "/",
-        "/index.html",
-        "/manifest.json"
+        "/main.html",
+        "/manifest.json",
+        "./img/favicon.png",
       ]);
-    })
+    }),
   );
 });
 
-self.addEventListener("fetch", e => {
+self.addEventListener("fetch", (e) => {
   e.respondWith(
-    caches.match(e.request).then(response => {
+    caches.match(e.request).then((response) => {
       return response || fetch(e.request);
-    })
+    }),
   );
 });
