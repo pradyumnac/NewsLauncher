@@ -44,6 +44,12 @@ async function clearQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
   }
 }
 
+async function updateQuote() {
+  const quote = getRandomQuote();
+  const display = document.getElementById("quote-display");
+  display.textContent = `${quote.quote} — ${quote.author}`;
+}
+
 // --- Initialize Storage ---
 async function initQuotesStorage() {
   const latestVersion = await fetchLatestVersion();
@@ -151,8 +157,4 @@ async function searchQuotes(term) {
   console.log("📚 Initializing quote system...");
 
   await initQuotesStorage();
-
-  const quote = await getRandomQuote();
-  const display = document.getElementById("quote-display");
-  display.textContent = `${quote.quote} — ${quote.author}`;
 })();
