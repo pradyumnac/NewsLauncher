@@ -285,6 +285,10 @@
           font-size: 1.8em;
         }
       }
+
+      .quote_display {
+        font-style: italic;
+      }
     </style>
   </head>
   <body>
@@ -463,23 +467,6 @@
       }
       updateClock();
       setInterval(updateClock, 1000);
-
-      // fetch(
-      //   `https://api.allorigins.win/get?url=${encodeURIComponent("https://zenquotes.io/api/quotes")}`,
-      // )
-      //   .then((response) => {
-      //     if (response.ok) return response.json();
-      //     throw new Error("Network response was not ok.");
-      //   })
-      //   .then((data) => {
-      //     const quote = JSON.parse(data.contents[0]);
-      //     document.getElementById("quote").textContent =
-      //       `"${quote.q}" — ${quote.a}`;
-      //   })
-      //   .catch(() => {
-      //     document.getElementById("quote").textContent =
-      //       "Could not load quote. Try again later.";
-      //   });
 
       function escapeHtml(unsafe) {
         return unsafe.replace(/[&<"']/g, function (m) {
