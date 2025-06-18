@@ -87,6 +87,13 @@ function openQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
   return new Promise((resolve, reject) => {
     const req = indexedDB.open(dbName, 1);
     req.onerror = () => reject(req.error);
+
+    req.onupgradeneeded = function (event) {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains(storeName)) {
+        db.createObjectStore(storeName, { keyPath: "quote" });
+      }
+    };
     req.onsuccess = () => {
       const db = req.result;
       const tx = db.transaction(storeName, "readonly");
