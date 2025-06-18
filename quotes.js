@@ -48,7 +48,7 @@ async function updateQuoteToView() {
   getRandomQuote()
     .then((quote) => {
       if (quote) {
-        console.log(`${quote.quote} — ${quote.author}`);
+        console.log(`${quote.q} — ${quote.a}`);
         const display = document.getElementById("quote");
         display.textContent = `${quote.q} — ${quote.a}`;
       } else {
