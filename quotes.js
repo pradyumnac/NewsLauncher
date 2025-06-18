@@ -87,7 +87,7 @@ function openQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
     req.onupgradeneeded = function (event) {
       const db = event.target.result;
       if (!db.objectStoreNames.contains(storeName)) {
-        db.createObjectStore(storeName, { keyPath: "id" });
+        db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
       }
     };
     req.onsuccess = () => {
