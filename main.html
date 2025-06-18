@@ -187,15 +187,16 @@
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Quote of the Day
-    fetch("https://api.quotable.io/random")
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("quote").textContent = `"${data.content}" — ${data.author}`;
-      })
-      .catch(() => {
-        document.getElementById("quote").textContent = "Could not load quote. Try again later.";
-      });
+    // Quote of the Day (using ZenQuotes)
+fetch("https://zenquotes.io/api/today")
+  .then(res => res.json())
+  .then(data => {
+    const quote = data[0];
+    document.getElementById("quote").textContent = `"${quote.q}" — ${quote.a}`;
+  })
+  .catch(() => {
+    document.getElementById("quote").textContent = "Could not load quote. Try again later.";
+  });
 
     // LocalStorage Bookmarks
     function loadBookmarks() {
