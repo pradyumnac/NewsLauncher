@@ -47,34 +47,86 @@
         --card: #f9f9f9;
       }
       body.theme-night {
-        --bg1: #111;
-        --bg2: #000;
-        --color: #eee;
-        --card: #1a1a1a;
+        /* --bg1: #111; */
+        /* --bg2: #000; */
+        /* --color: #eee; */
+        /* --card: #1a1a1a; */
+        --bg1: #111111;
+        --bg2: #1a1a1a; /* Dark grey instead of black */
+        --color: #eeeeee;
+        --card: #2a2a2a; /* More distinct from bg2 */
       }
       body.theme-sepia {
+        /* --bg1: #f4ecd8; */
+        /* --bg2: #eaddc3; */
+        /* --color: #5b4636; */
+        /* --card: #f5e7c4; */
         --bg1: #f4ecd8;
-        --bg2: #eaddc3;
-        --color: #5b4636;
-        --card: #f5e7c4;
+        --bg2: #e0ceb3; /* Slightly darker for better layering */
+        --color: #4a3a2b; /* More contrast than original #5b4636 */
+        --card: #e6d6b8; /* Distinct from bg2 and bg1 */
       }
       body.theme-gruvbox {
+        /* --bg1: #282828; */
+        /* --bg2: #1d2021; */
+        /* --color: #ebdbb2; */
+        /* --card: #3c3836; */
         --bg1: #282828;
-        --bg2: #1d2021;
+        --bg2: #202020; /* Darker to distinguish from card */
         --color: #ebdbb2;
-        --card: #3c3836;
+        --card: #3f3a36; /* More separation from bg2 */
       }
       body.theme-tokyo {
+        /* --bg1: #1a1b26; */
+        /* --bg2: #16161e; */
+        /* --color: #a9b1d6; */
+        /* --card: #2a2b3c; */
         --bg1: #1a1b26;
-        --bg2: #16161e;
+        --bg2: #1f1f2b; /* Slightly lighter */
         --color: #a9b1d6;
-        --card: #2a2b3c;
+        --card: #2f3040; /* More contrast from bg2 */
       }
       body.theme-catpuccin {
+        /* --bg1: #1e1e2e; */
+        /* --bg2: #181825; */
+        /* --color: #f5e0dc; */
+        /* --card: #2c2c3a; */
         --bg1: #1e1e2e;
-        --bg2: #181825;
+        --bg2: #242436; /* Slight contrast bump */
         --color: #f5e0dc;
-        --card: #2c2c3a;
+        --card: #35354c; /* Clearly distinct from bg2 */
+      }
+
+      /* 🔵 Nord-inspired cool theme */
+      body.theme-nord {
+        --bg1: #2e3440;
+        --bg2: #3b4252;
+        --color: #d8dee9;
+        --card: #434c5e;
+      }
+
+      /* 🌅 Solarized Light variant */
+      body.theme-solarized-light {
+        --bg1: #fdf6e3;
+        --bg2: #eee8d5;
+        --color: #586e75;
+        --card: #e0dbc3;
+      }
+
+      /* 🌌 Solarized Dark variant */
+      body.theme-solarized-dark {
+        --bg1: #002b36;
+        --bg2: #073642;
+        --color: #93a1a1;
+        --card: #0d3441;
+      }
+
+      /* 🍃 Forest Night theme */
+      body.theme-forest {
+        --bg1: #0f1d13;
+        --bg2: #1b2e1f;
+        --color: #c9dbc5;
+        --card: #2d4b31;
       }
 
       #title {
@@ -239,13 +291,20 @@
       <div class="header-bar">
         <h1><i id="title" class="fa-solid fa-rocket"></i> Web Launcher</h1>
         <div class="theme-switcher">
-          <select id="themeSelector" onchange="changeTheme(this.value)">
+          <select
+            id="themeSelector"
+            onchange="changeTheme(this.value)"
+            aria-label="Theme Selector"
+          >
             <option value="day">Day</option>
             <option value="night">Night</option>
             <option value="sepia">Sepia</option>
             <option value="gruvbox">Gruvbox</option>
             <option value="tokyo">Tokyo</option>
-            <option value="catpuccin">Catpuccin</option>
+            <option value="nord">Nord</option>
+            <option value="solarized-light">Solarized Light</option>
+            <option value="solarized-dark">Solarized Dark</option>
+            <option value="theme-forest">Theme Forest</option>
           </select>
         </div>
       </div>
