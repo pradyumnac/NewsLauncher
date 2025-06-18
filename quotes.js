@@ -45,9 +45,17 @@ async function clearQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
 }
 
 async function updateQuoteToView() {
-  const quote = getRandomQuote();
-  const display = document.getElementById("quote");
-  display.textContent = `${quote.quote} — ${quote.author}`;
+  getRandomQuote()
+    .then((quote) => {
+      if (quote) {
+        console.log(`${quote.quote} — ${quote.author}`);
+        const display = document.getElementById("quote");
+        display.textContent = `${quote.quote} — ${quote.author}`;
+      } else {
+        console.warn("⚠️ No quote found.");
+      }
+    })
+    .catch(console.error);
 }
 
 // --- Initialize Storage ---
