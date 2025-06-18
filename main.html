@@ -9,7 +9,7 @@
       content="Minimal homepage launcher with bookmarks, Google search, quote of the day, and PWA support."
     />
     <link rel="icon" type="image/x-icon" href="./img/favicon.png" />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -357,7 +357,7 @@
             type="url"
             placeholder="URL (e.g., https://www.reddit.com)"
           />
-          <button onclick="addBookmark()">Add</button>
+          <button type="button" onclick="addBookmark()">Add</button>
         </div>
       </section>
     </main>
@@ -425,7 +425,7 @@
 
       // Load stored theme on page load
       document.addEventListener("DOMContentLoaded", () => {
-        const savedTheme = localStorage.getItem("preferredTheme") || "night";
+        const savedTheme = localStorage.getItem("preferredTheme") || "sepia";
         document.getElementById("themeSelector").value = savedTheme;
         changeTheme(savedTheme);
       });
@@ -434,7 +434,7 @@
 
       // Register service worker
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("service-worker.js");
+        navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
   </body>
