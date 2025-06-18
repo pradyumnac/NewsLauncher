@@ -34,11 +34,16 @@ function clearQuotesDB(dbName = DB_NAME, storeName = STORE_NAME) {
     const req = indexedDB.open(dbName, 1);
     req.onerror = () => reject(req.error);
     req.onsuccess = () => {
-      const tx = req.result.transaction(storeName, "readwrite");
-      const store = tx.objectStore(storeName);
-      const clearReq = store.clear();
-      clearReq.onsuccess = () => resolve(true);
-      clearReq.onerror = () => reject(clearReq.error);
+      try {
+        const tx = req.result.transaction(storeName, "readwrite");
+        const store = tx.objectStore(storeName);
+        const clearReq = store.clear();
+        clearReq.onsuccess = () => resolve(true);
+        clearReq.onerror = () => reject(clearReq.error);
+      } catch (err) {
+        console.warn("No store found! first time?");
+        resolve(true);
+      }
     };
   });
 }
