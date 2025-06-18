@@ -378,9 +378,12 @@
       // Quote of the Day (using ZenQuotes)
       // using public cors proxy
       fetch(
-        "https://api.allorigins.win/get?url=https://zenquotes.io/api/quotes",
+        `https://api.allorigins.win/get?url=${encodeURIComponent("https://zenquotes.io/api/quotes")}`,
       )
-        .then((res) => res.json())
+        .then((response) => {
+          if (response.ok) return response.json();
+          throw new Error("Network response was not ok.");
+        })
         .then((data) => {
           const quote = data[0];
           document.getElementById("quote").textContent =
