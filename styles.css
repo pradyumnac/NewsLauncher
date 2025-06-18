@@ -77,6 +77,11 @@ body {
     align-items: center;
     list-style-type: none;
 }
+li {
+	border-radius: 0.2rem;
+	background: #000000;
+	background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(79, 89, 79, 1) 65%, rgba(87, 102, 91, 1) 100%);
+}
 i {
     transition: transform 0.3s;
 }
