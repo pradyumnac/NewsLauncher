@@ -80,7 +80,7 @@ function loadGlassOverlayComponents() {
     document.getElementById('timeSuffix').innerHTML = convertTimeOfDay(hour, timeOfDay);
     
     // display the date on the glass overlay
-    document.getElementById('date').innerHTML = "Today is the " + day + daySuffix + " of " + monthNames[month] + " " + year;
+    document.getElementById('date').innerHTML = ""+day + daySuffix + " " + monthNames[month] + "," + year;
 
     // call function again after specified amount of time
     let t = setTimeout(loadGlassOverlayComponents, 500);
