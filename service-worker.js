@@ -2,9 +2,9 @@ self.addEventListener("install", (e) => {
   e.waitUntil(
     caches.open("launcher-cache").then((cache) => {
       return cache.addAll([
-        "/index.html",
-        "/manifest.json",
-        "./img/favicon.png",
+        "/newslauncher",
+        "/newslauncher/manifest.json",
+        "/newslauncher/img/favicon.png",
       ]);
     }),
   );
