@@ -423,6 +423,68 @@
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("service-worker.js");
       }
+
+      /* hotkeys */
+      const hotkeyMap = {};
+      const hotkeyDetails = [];
+
+      function assignHotkeys() {
+        const usedKeys = new Set();
+        const links = document.querySelectorAll(".icon-link a");
+
+        links.forEach((link) => {
+          const label = link.textContent.trim();
+          for (let i = 0; i < label.length; i++) {
+            const char = label[i].toUpperCase();
+            if (/[A-Z0-9]/.test(char) && !usedKeys.has(char)) {
+              usedKeys.add(char);
+              hotkeyMap[char] = link;
+              hotkeyDetails.push({ key: char, label, url: link.href });
+              break;
+            }
+          }
+        });
+      }
+
+      function openLinkByKey(key) {
+        const link = hotkeyMap[key.toUpperCase()];
+        if (link) {
+          window.open(link.href, "_blank");
+        }
+      }
+
+      function showHotkeyModal() {
+        const list = document.getElementById("hotkeyList");
+        list.innerHTML = "";
+        hotkeyDetails.forEach(({ key, label, url }) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${key}</strong> → ${label} <small>(${url})</small>`;
+          list.appendChild(li);
+        });
+        document.getElementById("hotkeyModal").style.display = "flex";
+      }
+
+      function hideHotkeyModal() {
+        document.getElementById("hotkeyModal").style.display = "none";
+      }
+
+      document.addEventListener("DOMContentLoaded", assignHotkeys);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "?") {
+          showHotkeyModal();
+          e.preventDefault();
+        } else if (e.key === "Escape") {
+          hideHotkeyModal();
+        } else if (
+          !e.ctrlKey &&
+          !e.metaKey &&
+          !e.altKey &&
+          e.key.length === 1
+        ) {
+          openLinkByKey(e.key);
+        }
+      });
     </script>
   </body>
 </html>
