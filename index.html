@@ -249,6 +249,7 @@
         <input
           type="text"
           name="q"
+          id="googleSearchInput"
           placeholder="Search Google..."
           aria-label="Google search input"
         />
@@ -490,6 +491,13 @@
             }
           }
         });
+        const list = document.getElementById("hotkeyList");
+        list.innerHTML = "";
+        hotkeyDetails.forEach(({ key, label, url }) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${key}</strong> → ${label} <small>(${url})</small>`;
+          list.appendChild(li);
+        });
       }
 
       function openLinkByKey(key) {
@@ -500,13 +508,6 @@
       }
 
       function showHotkeyModal() {
-        const list = document.getElementById("hotkeyList");
-        list.innerHTML = "";
-        hotkeyDetails.forEach(({ key, label, url }) => {
-          const li = document.createElement("li");
-          li.innerHTML = `<strong>${key}</strong> → ${label} <small>(${url})</small>`;
-          list.appendChild(li);
-        });
         document.getElementById("hotkeyModal").style.display = "flex";
       }
 
@@ -517,11 +518,19 @@
       document.addEventListener("DOMContentLoaded", assignHotkeys);
 
       document.addEventListener("keydown", (e) => {
+        const activeTag = document.activeElement.tagName.toLowerCase();
+        if (activeTag === "input" || activeTag === "textarea") return;
+
         if (e.key === "?") {
           showHotkeyModal();
           e.preventDefault();
         } else if (e.key === "Escape") {
           hideHotkeyModal();
+        } else if (e.key === " ") {
+          e.preventDefault();
+          const input = document.queryElementById("googleSearchInput");
+          if (input) input.focus();
+          return;
         } else if (
           !e.ctrlKey &&
           !e.metaKey &&
