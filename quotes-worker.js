@@ -21,7 +21,7 @@ onmessage = function (e) {
 
     let successCount = 0;
     for (const item of quotes) {
-      store.add(item);
+      store.put(item);
       successCount++;
     }
 
