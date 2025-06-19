@@ -7,10 +7,16 @@ beautiful themes, and PWA support.**
 
 ## Screenshots
 
-![Theme Sample 1](./img/screenshots/screenshot2.png)
+<figure>
+  <img src="./img/screenshots/screenshot2.png" alt="Theme 1">
+  <figcaption>Bookmark Interface with theme 1</figcaption>
+</figure>
 ![Theme Sample 2](./img/screenshots/screenshot3.png)
+
 ![Theme Sample 3](./img/screenshots/screenshot4.png)
+  
 ![Theme Sample 4](./img/screenshots/screenshot5.png)
+  
 ![Dynamic Keyboard Shortcuts](./img/screenshots/screenshot6.png)
 ![Custom Bookmarks](./img/screenshots/screenshot1.png)
 ![Unobstructive Random Quote without API](./img/screenshots/screenshot7.png)
