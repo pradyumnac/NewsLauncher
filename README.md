@@ -3,23 +3,37 @@
 **A fast, minimalist start page with Google search, dynamic bookmarks,
 beautiful themes, and PWA support.**
 
+🕵 No Privacy Risk ( Beware the hosting provider!)
+
 ---
 
-## Screenshots
+## 🖼 Screenshots
 
-<figure>
+<figure style="align:center">
   <img src="./img/screenshots/screenshot2.png" alt="Theme 1">
-  <figcaption>Bookmark Interface with theme 1</figcaption>
+  <figcaption >Bookmark Interface with theme 1</figcaption>
 </figure>
+  
 ![Theme Sample 2](./img/screenshots/screenshot3.png)
 
 ![Theme Sample 3](./img/screenshots/screenshot4.png)
-  
+
 ![Theme Sample 4](./img/screenshots/screenshot5.png)
-  
-![Dynamic Keyboard Shortcuts](./img/screenshots/screenshot6.png)
-![Custom Bookmarks](./img/screenshots/screenshot1.png)
-![Unobstructive Random Quote without API](./img/screenshots/screenshot7.png)
+
+<figure style="align:center">
+  <img src="./img/screenshots/screenshot6.png" alt="Keyboard Shortcuts Popup">
+  <figcaption >Dynamically generated 2 letter keyboard shortcuts at runtime</figcaption>
+</figure>
+
+<figure style="align:center">
+  <img src="./img/screenshots/screenshot1.png" alt="Custom Bookmarks">
+  <figcaption >User added Bookmarks that persist across web-launcher</figcaption>
+</figure>
+
+<figure style="align:center">
+  <img src="./img/screenshots/screenshot1.png" alt="Random Quotes">
+  <figcaption >Unobstructive random quote generator without any API (Content completely customisable)</figcaption>
+</figure>
 
 ---
 
@@ -33,6 +47,8 @@ beautiful themes, and PWA support.**
 - ⚡ **Offline Support** — Works offline via Service Worker.
 - 📱 **Installable PWA** — Add to your phone or desktop like an app.
 - 🌐 **Responsive Design** — Works on all screen sizes.
+- 🪶 **Lightweight** - Performance optimised for all screen sizes. Optimised with Lighthouse
+- 🕵 **Privacy Friendly** - Data never leaves your servers
 
 ---
 
