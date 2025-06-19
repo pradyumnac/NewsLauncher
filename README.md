@@ -9,7 +9,9 @@ beautiful themes, and PWA support.**
 
 ## 🖼 Screenshots
 
-#### Bookmark Interface with Sample Themes
+#### Home page UI
+
+Few themes are shown here. Supports more
 
 ![Theme Sample 2](./img/screenshots/screenshot2.png)
 ![Theme Sample 2](./img/screenshots/screenshot3.png)
@@ -18,19 +20,30 @@ beautiful themes, and PWA support.**
 
 ---
 
-#### Dynamically generated 2 letter keyboard shortcuts at runtime
+#### Keyboard Shortcuts Support
 
-## ![Keyboard Shortcuts Popup](./img/screenshots/screenshot6.png)
+Keyboard shortcuts are generated at launch.
+Static bookmarks are given priority so that adding bookmarks dont mess up existing ones you are used to
+Uses two available letters. e.g. press `gi` to launch github
+To get the shortcuts, press ?. Escape hides this popup
+To use the search, press spacebar to focus the google search box
+
+![Keyboard Shortcuts Helper Pop Up](./img/screenshots/screenshot6.png)
 
 ---
 
-#### User added Bookmarks that persist across web-launcher
+#### User added Bookmarks
+
+Entries persist across sessions
 
 ![Custom Bookmarks](./img/screenshots/screenshot1.png)
 
 ---
 
-#### Unobstructive random quote generator without any API (Content completely customisable
+#### Unobstructive random quote generator without any API
+
+The quote list is completely customisable. See `data` folder.
+For version increments of quote, ensure to dump up version number in `data/quotes-version.json`
 
 ![Random Quotes](./img/screenshots/screenshot7.png)
 
