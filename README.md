@@ -15,26 +15,26 @@ beautiful themes, and PWA support.**
 </figure>
   
 ![Theme Sample 2](./img/screenshots/screenshot3.png)
-
+  
 ![Theme Sample 3](./img/screenshots/screenshot4.png)
-
+  
 ![Theme Sample 4](./img/screenshots/screenshot5.png)
-
+  
 <figure style="align:center">
   <img src="./img/screenshots/screenshot6.png" alt="Keyboard Shortcuts Popup">
   <figcaption >Dynamically generated 2 letter keyboard shortcuts at runtime</figcaption>
 </figure>
-
+  
 <figure style="align:center">
   <img src="./img/screenshots/screenshot1.png" alt="Custom Bookmarks">
   <figcaption >User added Bookmarks that persist across web-launcher</figcaption>
 </figure>
-
+  
 <figure style="align:center">
   <img src="./img/screenshots/screenshot7.png" alt="Random Quotes">
   <figcaption >Unobstructive random quote generator without any API (Content completely customisable)</figcaption>
 </figure>
-
+  
 ---
 
 ## ✨ Features
