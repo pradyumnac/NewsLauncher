@@ -11,7 +11,7 @@ beautiful themes, and PWA support.**
 
 #### Home page UI
 
-Few themes are shown here. Supports more
+Supports 9 themes
 
 ![Theme Sample 2](./img/screenshots/screenshot2.png)
 ![Theme Sample 2](./img/screenshots/screenshot3.png)
@@ -22,11 +22,11 @@ Few themes are shown here. Supports more
 
 #### Keyboard Shortcuts Support
 
-Keyboard shortcuts are generated at launch.
-Static bookmarks are given priority so that adding bookmarks dont mess up existing ones you are used to
-Uses two available letters. e.g. press `gi` to launch github
-To get the shortcuts, press ?. Escape hides this popup
-To use the search, press spacebar to focus the google search box
+Keyboard shortcuts are generated at launch.  
+Static bookmarks are given priority so that adding bookmarks dont mess up existing ones you are used to.  
+Uses two available letters. E.g. press `gi` to launch github.  
+To get the shortcuts, press `?`. Escape hides this popup.  
+To use the search, press `spacebar` to focus the google search box
 
 ![Keyboard Shortcuts Helper Pop Up](./img/screenshots/screenshot6.png)
 
