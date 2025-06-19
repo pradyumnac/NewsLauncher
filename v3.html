@@ -772,38 +772,56 @@
       }
 
       /* hotkeys */
-      const hotkeyMap = {};
-      const hotkeyDetails = [];
+      let hotkeyMap2 = {};
+      let hotkeyDetails = [];
+      let inputBuffer = "";
+
+      function openLinkByKeySeq(seq) {
+        const link = hotkeyMap2[seq.toLowerCase()];
+        if (link) {
+          window.open(link.href, "_blank");
+          inputBuffer = ""; // reset after match
+        }
+      }
 
       function assignHotkeys() {
-        const usedKeys = new Set();
         const links = document.querySelectorAll(".icon-link a");
+        const usedCombos = new Set();
 
         links.forEach((link) => {
-          const label = link.textContent.trim();
-          for (let i = 0; i < label.length; i++) {
-            const char = label[i].toUpperCase();
-            if (/[A-Z0-9]/.test(char) && !usedKeys.has(char)) {
-              usedKeys.add(char);
-              hotkeyMap[char] = link;
-              hotkeyDetails.push({ key: char, label, url: link.href });
+          const label = link.textContent
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, "");
+          let keySeq = "";
+
+          for (let i = 0; i < label.length - 1; i++) {
+            const pair = label[i] + label[i + 1];
+            if (/^[a-z0-9]{2}$/.test(pair) && !usedCombos.has(pair)) {
+              keySeq = pair;
+              usedCombos.add(pair);
               break;
             }
           }
-        });
-        const list = document.getElementById("hotkeyList");
-        list.innerHTML = "";
-        hotkeyDetails.forEach(({ key, label, url }) => {
-          const li = document.createElement("li");
-          li.innerHTML = `<strong>${key}</strong> → ${label} <small>(${url})</small>`;
-          list.appendChild(li);
-        });
-      }
 
-      function openLinkByKey(key) {
-        const link = hotkeyMap[key.toUpperCase()];
-        if (link) {
-          window.open(link.href, "_blank");
+          if (keySeq) {
+            hotkeyMap2[keySeq] = link;
+            hotkeyDetails.push({
+              key: keySeq,
+              label: link.textContent.trim(),
+              url: link.href,
+            });
+          }
+        });
+
+        const list = document.getElementById("hotkeyList");
+        if (list) {
+          list.innerHTML = "";
+          hotkeyDetails.forEach(({ key, label, url }) => {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${key}</strong> → ${label} <small>(${url})</small>`;
+            list.appendChild(li);
+          });
         }
       }
 
@@ -815,13 +833,13 @@
         document.getElementById("hotkeyModal").style.display = "none";
       }
 
-      document.addEventListener("DOMContentLoaded", (e) => {
+      document.addEventListener("DOMContentLoaded", () => {
         assignHotkeys();
       });
 
       document.addEventListener("keydown", (e) => {
-        const activeTag = document.activeElement.tagName.toLowerCase();
-        if (activeTag === "input" || activeTag === "textarea") return;
+        const tag = document.activeElement.tagName.toLowerCase();
+        if (tag === "input" || tag === "textarea") return;
 
         if (e.key === "?") {
           showHotkeyModal();
@@ -832,14 +850,19 @@
           e.preventDefault();
           const input = document.getElementById("googleSearchInput");
           if (input) input.focus();
-          return;
         } else if (
           !e.ctrlKey &&
           !e.metaKey &&
           !e.altKey &&
           e.key.length === 1
         ) {
-          openLinkByKey(e.key);
+          inputBuffer += e.key.toLowerCase();
+          if (inputBuffer.length > 2) {
+            inputBuffer = inputBuffer.slice(-2); // keep only last 2 chars
+          }
+          if (inputBuffer.length === 2) {
+            openLinkByKeySeq(inputBuffer);
+          }
         }
       });
     </script>
