@@ -20,11 +20,15 @@ beautiful themes, and PWA support.**
 
 #### Dynamically generated 2 letter keyboard shortcuts at runtime
 
-![Keyboard Shortcuts Popup](./img/screenshots/screenshot6.png)
+## ![Keyboard Shortcuts Popup](./img/screenshots/screenshot6.png)
+
+---
 
 #### User added Bookmarks that persist across web-launcher
 
 ![Custom Bookmarks](./img/screenshots/screenshot1.png)
+
+---
 
 #### Unobstructive random quote generator without any API (Content completely customisable
 
