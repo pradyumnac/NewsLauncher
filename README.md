@@ -71,11 +71,9 @@ cd newslauncher
 
 Just open `index.html` in your browser.
 
-```md
-Tip:
-v1.html, v2.html, v3.html are iterations.
-For my dev purposes, I have hardlinked index.html from the version I am working on ( v3).
-```
+> [!Tip]
+> v1.html, v2.html, v3.html are iterations.
+> For my dev purposes, I have hardlinked index.html from the version I am working on ( v3).
 
 Or use a local server for PWA features:
 
@@ -237,4 +235,5 @@ git push origin feature/your-feature
 
 If you like it, give it a ⭐ to help others discover it!
 
-> > Written by AI, Optimised and supervised by a living being. ( how it should be)
+> [!CAUTION]
+> Written by 🤖, Optimised and supervised by 🙅 ( how it should be)
