@@ -7,13 +7,13 @@ beautiful themes, and PWA support.**
 
 ## Screenshots
 
-![Theme Sample 1](./img/screenshot2.png) <!-- Replace with actual screenshot path if available -->
-![Theme Sample 2](./img/screenshot3.png) <!-- Replace with actual screenshot path if available -->
-![Theme Sample 3](./img/screenshot4.png) <!-- Replace with actual screenshot path if available -->
-![Theme Sample 4](./img/screenshot5.png) <!-- Replace with actual screenshot path if available -->
-![Dynamic Keyboard Shortcuts](./img/screenshot6.png) <!-- Replace with actual screenshot path if available -->
-![Custom Bookmarks](./img/screenshot1.png) <!-- Replace with actual screenshot path if available -->
-![Unobstructive Random Quote without API](./img/screenshot7.png) <!-- Replace with actual screenshot path if available -->
+![Theme Sample 1](./img/screenshots/screenshot2.png)
+![Theme Sample 2](./img/screenshots/screenshot3.png)
+![Theme Sample 3](./img/screenshots/screenshot4.png)
+![Theme Sample 4](./img/screenshots/screenshot5.png)
+![Dynamic Keyboard Shortcuts](./img/screenshots/screenshot6.png)
+![Custom Bookmarks](./img/screenshots/screenshot1.png)
+![Unobstructive Random Quote without API](./img/screenshots/screenshot7.png)
 
 ---
 
@@ -22,8 +22,8 @@ beautiful themes, and PWA support.**
 - 🔍 **Google Search** — Instant search built-in.
 - 📚 **Dynamic Bookmarks** — Add your own links, saved via `localStorage`.
 - 🎨 **Themes** — Switch between Day, Night, Sepia, Gruvbox, Tokyo Night, and Catppuccin.
-- ⏰ **Real-Time Clock** — Stylish digital clock with `Orbitron` font.
-- 📜 **Quote of the Day** — Fetched from ZenQuotes API.
+- ⏰ **Real-Time Clock** — Stylish digital clock. You may stylize further with custom font
+- 📜 **Quote of the Day** — Fetched from hosted json. No third part dependency.
 - ⚡ **Offline Support** — Works offline via Service Worker.
 - 📱 **Installable PWA** — Add to your phone or desktop like an app.
 - 🌐 **Responsive Design** — Works on all screen sizes.
@@ -49,8 +49,10 @@ cd newslauncher
 
 Just open `index.html` in your browser.
 
-```
-Tip: v1.html,v2.html,v3.html are iterations. For my dev pourposes i hardlink index.html from the version I am working on.
+```md
+Tip:
+v1.html, v2.html, v3.html are iterations.
+For my dev purposes, I have hardlinked index.html from the version I am working on ( v3).
 ```
 
 Or use a local server for PWA features:
@@ -71,7 +73,7 @@ You can deploy this project using GitHub Pages or any static file host:
 
 - Push the code to a public repo (e.g., `yourusername/web-launcher`)
 - Go to **Settings → Pages → Source** and select the branch (`main`) and root (`/`)
-- Update all absolute paths in `index.html` and `manifest.json` to be relative or match the GitHub Pages path (`/web-launcher/` if applicable)
+- Update all absolute paths in `index.html` and `manifest.json` to be relative or match the GitHub Pages path (`/newslauncher/` if applicable)
 - Example:
 
   ```html
@@ -90,11 +92,20 @@ You can deploy this project using GitHub Pages or any static file host:
 web-launcher/
 │
 ├── index.html             # Main HTML file
+├── v1.html                # v1 Homepage file ( Based on original project )
+├── v2.html                # v2 Homepage file ( Handwritten but now discarded)
+├── v3.html                # v3 Homepage file ( Written by AI, Supervised by yours truly : As it should be)
 ├── manifest.json          # PWA manifest
+├── quotes.js              # Quotation fetching logic with Local IndexedDb support
+├── quotes-worker.js       # BG worker for quotation updation logic (non-blocking)
 ├── service-worker.js      # Offline cache logic
+├── data/
+│   ├── ...                # Files for quotes local api
 ├── img/
 │   ├── favicon.png        # App icon
-│   └── screenshot.png     # Project screenshot
+│   ├── ...                # Other icons
+│   └── favicon.ico        # Project screenshot
+│     ├── screenshots/        # App icon
 ├── README.md              # This file
 └── ...                    # Other static assets
 ```
