@@ -3,12 +3,17 @@
 **A fast, minimalist start page with Google search, dynamic bookmarks,
 beautiful themes, and PWA support.**
 
-![Web Launcher Screenshot](./img/screenshot1.png) <!-- Replace with actual screenshot path if available -->
-![Web Launcher Screenshot](./img/screenshot2.png) <!-- Replace with actual screenshot path if available -->
-![Web Launcher Screenshot](./img/screenshot3.png) <!-- Replace with actual screenshot path if available -->
-![Web Launcher Screenshot](./img/screenshot4.png) <!-- Replace with actual screenshot path if available -->
-![Web Launcher Screenshot](./img/screenshot5.png) <!-- Replace with actual screenshot path if available -->
-![Web Launcher Screenshot](./img/screenshot6.png) <!-- Replace with actual screenshot path if available -->
+---
+
+## Screenshots
+
+![Theme Sample 1](./img/screenshot2.png) <!-- Replace with actual screenshot path if available -->
+![Theme Sample 2](./img/screenshot3.png) <!-- Replace with actual screenshot path if available -->
+![Theme Sample 3](./img/screenshot4.png) <!-- Replace with actual screenshot path if available -->
+![Theme Sample 4](./img/screenshot5.png) <!-- Replace with actual screenshot path if available -->
+![Dynamic Keyboard Shortcuts](./img/screenshot6.png) <!-- Replace with actual screenshot path if available -->
+![Custom Bookmarks](./img/screenshot1.png) <!-- Replace with actual screenshot path if available -->
+![Unobstructive Random Quote without API](./img/screenshot7.png) <!-- Replace with actual screenshot path if available -->
 
 ---
 
