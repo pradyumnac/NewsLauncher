@@ -31,7 +31,7 @@ beautiful themes, and PWA support.**
 </figure>
 
 <figure style="align:center">
-  <img src="./img/screenshots/screenshot1.png" alt="Random Quotes">
+  <img src="./img/screenshots/screenshot7.png" alt="Random Quotes">
   <figcaption >Unobstructive random quote generator without any API (Content completely customisable)</figcaption>
 </figure>
 
