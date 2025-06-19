@@ -221,11 +221,12 @@
       }
 
       .bookmark-section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
-        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 5%;
+        padding-left: 10%;
+        padding-right: 10%;
+        align-items: start;
       }
 
       .bookmark-group {
@@ -461,7 +462,7 @@
         </div>
         <div class="icon-link">
           <a href="https://www.businessinsider.com/"
-            ><i class="fa-solid fa-user-secret"></i> Insider (Business)</a
+            ><i class="fa-solid fa-user-secret"></i> Business Insider</a
           >
         </div>
         <div class="icon-link">
@@ -490,18 +491,23 @@
       <section class="bookmark-group" aria-label="Daily Tools">
         <!-- <h3>Daily Tools</h3> -->
         <div class="icon-link">
-          <a href="https://mail.google.com"
-            ><i class="fa-solid fa-envelope"></i> Gmail</a
+          <a href="https://mail.google.com/mail/u/0/"
+            ><i class="fa-solid fa-envelope"></i> Gmail1</a
           >
         </div>
         <div class="icon-link">
-          <a href="https://calendar.google.com"
-            ><i class="fa-solid fa-calendar"></i> Google Calendar</a
+          <a href="https://mail.google.com/mail/u/1/"
+            ><i class="fa-solid fa-envelope"></i> Gmail2</a
           >
         </div>
         <div class="icon-link">
-          <a href="https://drive.google.com"
-            ><i class="fa-solid fa-hdd"></i> Google Drive</a
+          <a href="https://mail.google.com/mail/u/2/"
+            ><i class="fa-solid fa-envelope"></i> Gmail3</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://docs.google.com/spreadsheets/u/0/"
+            ><i class="fa-solid fa-table"></i> Google Sheets</a
           >
         </div>
         <div class="icon-link">
@@ -510,8 +516,8 @@
           >
         </div>
         <div class="icon-link">
-          <a href="https://web.stotify.in"
-            ><i class="fa-solid fa-music"></i> Web Stotify</a
+          <a href="https://open.spotify.com/"
+            ><i class="fa-solid fa-music"></i> Web Spotify</a
           >
         </div>
         <div class="icon-link">
@@ -544,11 +550,11 @@
             ><i class="fa-brands fa-discord"></i> Discord</a
           >
         </div>
-      </section>
-
-      <!-- Column 4: Financial Resources -->
-      <section class="bookmark-group" aria-label="Financial Resources">
-        <!-- <h3>Financial Resources</h3> -->
+        <div class="icon-link">
+          <a href="https://ourworldindata.org/"
+            ><i class="fa-solid fa-mug-hot"></i> Our World in Data</a
+          >
+        </div>
         <div class="icon-link">
           <a href="https://www.screener.in/"
             ><i class="fa-solid fa-chart-line"></i> Screener.in</a
@@ -560,18 +566,70 @@
           >
         </div>
         <div class="icon-link">
-          <a href="https://www.moneycontrol.com/"
-            ><i class="fa-solid fa-chart-column"></i> Moneycontrol</a
+          <a href="https://github.com/pradyumnac?tab=repositories"
+            ><i class="fa-brands fa-github"></i> Github</a
+          >
+        </div>
+      </section>
+
+      <!-- Column 4: Financial Resources -->
+      <section class="bookmark-group" aria-label="Content">
+        <!-- <h3>Financial Resources</h3> -->
+        <div class="icon-link">
+          <a href="https://forum.valuepickr.com/"
+            ><i class="fa-solid fa-comments"></i> Community: ValuePickr Forum</a
           >
         </div>
         <div class="icon-link">
-          <a href="https://www.tradingview.com/"
-            ><i class="fa-solid fa-chart-area"></i> TradingView</a
+          <a href="https://www.oaktreecapital.com/insights/memo"
+            ><i class="fa-solid fa-book"></i> Newsletters: Howard Marks Memos</a
           >
         </div>
         <div class="icon-link">
-          <a href="https://www.investing.com/"
-            ><i class="fa-solid fa-globe"></i> Investing.com</a
+          <a href="https://www.facebook.com/groups/147164928687742"
+            ><i class="fa-solid fa-users"></i> Community: Asan Ideas for
+            Wealth</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.congruenceadvisors.com/"
+            ><i class="fa-solid fa-scale-balanced"></i> Newsletter: Congruence
+            Advisors</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://buggyhuman.substack.com/"
+            ><i class="fa-solid fa-news"></i> Newsletter: Buggy Humans</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://x.com/SridharanAnand"
+            ><i class="fa-brands fa-twitter"></i> Twitter: Buggy Humans</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://platforms.substack.com/"
+            ><i class="fa-solid fa-globe"></i> Newsletter: SangeetPaul</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://surgecapital.substack.com/"
+            ><i class="fa-solid fa-globe"></i> Newsletters: Surge Capital</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.finshots.in/archive"
+            ><i class="fa-solid fa-bolt"></i> Finshots Daily</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://www.finshots.in/markets"
+            ><i class="fa-solid fa-bolt"></i> Finshots Markets</a
+          >
+        </div>
+        <div class="icon-link">
+          <a href="https://thedailybrief.zerodha.com/"
+            ><i class="fa-solid fa-globe"></i> TheDailyBrief</a
           >
         </div>
         <div class="icon-link">
@@ -590,21 +648,6 @@
           >
         </div>
         <div class="icon-link">
-          <a href="https://forum.valuepickr.com/"
-            ><i class="fa-solid fa-comments"></i> ValuePickr Forum</a
-          >
-        </div>
-        <div class="icon-link">
-          <a href="https://www.oaktreecapital.com/insights/memo"
-            ><i class="fa-solid fa-book"></i> Howard Marks Memos</a
-          >
-        </div>
-        <div class="icon-link">
-          <a href="https://www.finshots.in/"
-            ><i class="fa-solid fa-bolt"></i> Finshots</a
-          >
-        </div>
-        <div class="icon-link">
           <a href="https://fs.blog/"
             ><i class="fa-solid fa-lightbulb"></i> Farnam Street</a
           >
@@ -615,18 +658,15 @@
           >
         </div>
         <div class="icon-link">
-          <a href="https://www.facebook.com/groups/ideasforwealth"
-            ><i class="fa-solid fa-users"></i> SN Ideas for Wealth</a
+          <a href="https://igyfoundation.org.uk/nomad-partnership-letters/"
+            ><i class="fa-solid fa-chalkboard-user"></i> Newsletters: Nick
+            Sleep</a
           >
         </div>
         <div class="icon-link">
-          <a href="https://www.congruenceadvisors.com/"
-            ><i class="fa-solid fa-scale-balanced"></i> Congruence Advisors</a
-          >
-        </div>
-        <div class="icon-link">
-          <a href="https://www.morningbrew.com/"
-            ><i class="fa-solid fa-mug-hot"></i> Morning Brew</a
+          <a href="https://opensourceinvestor.substack.com/"
+            ><i class="fa-solid fa-chalkboard-user"></i> Newsletters:
+            OpensourceInvestor</a
           >
         </div>
       </section>
