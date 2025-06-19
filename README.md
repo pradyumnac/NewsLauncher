@@ -1,8 +1,14 @@
 # 🚀 Web Launcher - Minimalist Customizable Start Page (PWA)
 
-**A fast, minimalist start page with Google search, dynamic bookmarks, beautiful themes, and PWA support.**
+**A fast, minimalist start page with Google search, dynamic bookmarks,
+beautiful themes, and PWA support.**
 
-![Web Launcher Screenshot](./img/screenshot.png) <!-- Replace with actual screenshot path if available -->
+![Web Launcher Screenshot](./img/screenshot1.png) <!-- Replace with actual screenshot path if available -->
+![Web Launcher Screenshot](./img/screenshot2.png) <!-- Replace with actual screenshot path if available -->
+![Web Launcher Screenshot](./img/screenshot3.png) <!-- Replace with actual screenshot path if available -->
+![Web Launcher Screenshot](./img/screenshot4.png) <!-- Replace with actual screenshot path if available -->
+![Web Launcher Screenshot](./img/screenshot5.png) <!-- Replace with actual screenshot path if available -->
+![Web Launcher Screenshot](./img/screenshot6.png) <!-- Replace with actual screenshot path if available -->
 
 ---
 
@@ -21,8 +27,7 @@
 
 ## 📦 Live Demo
 
-> Visit: [https://yourusername.github.io/web-launcher/](https://yourusername.github.io/web-launcher/)  
-> *(Replace with your actual GitHub Pages URL)*
+> Visit: [https://pradyumnac.github.io/newslauncher/](https://pradyumnac.github.io/newslauncher/)
 
 ---
 
@@ -31,13 +36,17 @@
 ### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/web-launcher.git
-cd web-launcher
+git clone https://github.com/pradyumnac/newslauncher.git
+cd newslauncher
 ```
 
 ### 2. **Run Locally**
 
 Just open `index.html` in your browser.
+
+```
+Tip: v1.html,v2.html,v3.html are iterations. For my dev pourposes i hardlink index.html from the version I am working on.
+```
 
 Or use a local server for PWA features:
 
@@ -53,15 +62,17 @@ python -m http.server
 
 You can deploy this project using GitHub Pages or any static file host:
 
-### GitHub Pages:
+### GitHub Pages
 
 - Push the code to a public repo (e.g., `yourusername/web-launcher`)
 - Go to **Settings → Pages → Source** and select the branch (`main`) and root (`/`)
 - Update all absolute paths in `index.html` and `manifest.json` to be relative or match the GitHub Pages path (`/web-launcher/` if applicable)
 - Example:
+
   ```html
   <link rel="manifest" href="manifest.json" />
   ```
+
   ```js
   navigator.serviceWorker.register("service-worker.js");
   ```
@@ -92,9 +103,7 @@ web-launcher/
 Modify the HTML inside the `<main>` section under `.bookmark-group`.
 
 ```html
-<a href="https://www.reddit.com">
-  <i class="fa-solid fa-link"></i> Reddit
-</a>
+<a href="https://www.reddit.com"> <i class="fa-solid fa-link"></i> Reddit </a>
 ```
 
 ### 🎨 Add / Edit Themes
@@ -116,33 +125,36 @@ You can add your own by modifying the CSS and `<select>` options.
 ## 🔒 Privacy Notice
 
 This project:
+
 - Does not use cookies or trackers
+- Uses cloudflare CDN for fontawesome icons. Its has its own set of third party cookies which may track users
 - Stores user data (bookmarks, theme preferences) **only in localStorage**
-- Fetches quotes from [ZenQuotes.io](https://zenquotes.io) via a public CORS proxy
 
 ---
 
 ## 📲 Progressive Web App (PWA)
 
 This app can be:
+
 - Installed on Android/iOS from Chrome
 - Installed on desktop from any Chromium browser
 
 **Features:**
+
 - Offline access
 - Home screen icon
-- App-like full screen view
+- App-like full screen view ( Set to portrait mode)
 
 ---
 
 ## 🧪 Browser Compatibility
 
-| Browser         | Compatible |
-|----------------|------------|
-| Chrome (desktop/mobile) | ✅ Yes |
-| Firefox         | ✅ Yes |
-| Edge            | ✅ Yes |
-| Safari (iOS/macOS) | ⚠️ Partial (limited PWA support) |
+| Browser                 | Compatible                       |
+| ----------------------- | -------------------------------- |
+| Chrome (desktop/mobile) | ✅ Yes                           |
+| Firefox                 | ✅ Yes                           |
+| Edge                    | ✅ Yes                           |
+| Safari (iOS/macOS)      | ⚠️ Partial (limited PWA support) |
 
 ---
 
@@ -155,7 +167,7 @@ We welcome contributions! Here's how you can help:
 - ✨ **Improve accessibility** and performance
 - 🔧 **Refactor or optimize code**
 
-### To contribute:
+### To contribute
 
 ```bash
 git clone https://github.com/yourusername/web-launcher.git
@@ -176,10 +188,10 @@ git push origin feature/your-feature
 
 ## 💡 Credits
 
-- Quotes API: [zenquotes.io](https://zenquotes.io)
+- Quotes API: Quotes fetched from Chatgpt filtering through my favourite authors.
 - Icons: [Font Awesome](https://fontawesome.com/)
-- Fonts: [Google Fonts](https://fonts.google.com/)
-- Inspired by minimal startpage concepts from Linux and r/startpages
+- Inspired by original fork [K-capehart/Web-Browser-Homepage](https://github.com/k-capehart/Web-Browser-Homepage).
+  V1.html is based out of that project. Current version (v3) is completely rewritten
 
 ---
 
