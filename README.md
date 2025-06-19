@@ -236,3 +236,5 @@ git push origin feature/your-feature
 ## 🌟 Star This Project
 
 If you like it, give it a ⭐ to help others discover it!
+
+> > Written by AI, Optimised and supervised by a living being. ( how it should be)
