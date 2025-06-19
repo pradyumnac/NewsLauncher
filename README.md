@@ -176,7 +176,7 @@ This project:
 
 - Does not use cookies or trackers
 - Uses cloudflare CDN for fontawesome icons. Its has its own set of third party cookies which may track users
-- Stores user data (bookmarks, theme preferences) **only in localStorage**
+- Stores user data (bookmarks, theme preferences) **only in localStorage** (IndexedDB to be technically correct)
 
 ---
 
