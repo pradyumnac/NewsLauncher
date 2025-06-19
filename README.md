@@ -9,7 +9,7 @@ beautiful themes, and PWA support.**
 
 ## 🖼 Screenshots
 
-### Bookmark Interface with Sample Themes
+#### Bookmark Interface with Sample Themes
 
 ![Theme Sample 2](./img/screenshots/screenshot2.png)
 ![Theme Sample 2](./img/screenshots/screenshot3.png)
@@ -18,15 +18,15 @@ beautiful themes, and PWA support.**
 
 ---
 
-### Dynamically generated 2 letter keyboard shortcuts at runtime
+#### Dynamically generated 2 letter keyboard shortcuts at runtime
 
 ![Keyboard Shortcuts Popup](./img/screenshots/screenshot6.png)
 
-### User added Bookmarks that persist across web-launcher
+#### User added Bookmarks that persist across web-launcher
 
 ![Custom Bookmarks](./img/screenshots/screenshot1.png)
 
-### Unobstructive random quote generator without any API (Content completely customisable
+#### Unobstructive random quote generator without any API (Content completely customisable
 
 ![Random Quotes](./img/screenshots/screenshot7.png)
 
